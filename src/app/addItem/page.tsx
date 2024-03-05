@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-const addItem = () => {
+const AddItem = () => {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const router = useRouter();
@@ -64,4 +64,4 @@ const addItem = () => {
   );
 };
 
-export default addItem;
+export default AddItem;
