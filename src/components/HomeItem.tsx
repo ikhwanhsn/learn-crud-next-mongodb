@@ -13,9 +13,12 @@ export default function HomeItem() {
   const deleteItem = async (id: any) => {
     const confirmed = confirm("Are you sure you want to delete this item?");
     if (confirmed) {
-      const res = await fetch(`http://localhost:3000/api/products?id=${id}`, {
-        method: "DELETE",
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/products?id=${id}`,
+        {
+          method: "DELETE",
+        }
+      );
       if (!res.ok) {
         throw new Error("Failed to delete data");
       }

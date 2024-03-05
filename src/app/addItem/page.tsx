@@ -14,13 +14,16 @@ const addItem = () => {
       return;
     }
     try {
-      const res = await fetch("http://localhost:3000/api/products", {
-        method: "POST",
-        headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify({ name, description }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/products`,
+        {
+          method: "POST",
+          headers: {
+            "Content-type": "application/json",
+          },
+          body: JSON.stringify({ name, description }),
+        }
+      );
       if (res.ok) {
         router.refresh();
         router.push("/");

@@ -20,13 +20,16 @@ const EditItem = ({ id }: any) => {
   const handleSubmit = async (e: any) => {
     e.preventDefault();
     try {
-      const res = await fetch(`http://localhost:3000/api/products/${id}`, {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ newName, newDescription }),
-      });
+      const res = await fetch(
+        `${process.env.NEXT_PUBLIC_API_URL}/api/products/${id}`,
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ newName, newDescription }),
+        }
+      );
       if (!res.ok) {
         throw new Error("Failed to create data");
       }
